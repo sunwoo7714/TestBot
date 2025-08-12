@@ -1,8 +1,8 @@
 import discord
+import os
 from discord.ext import commands
 import requests
 
-TOKEN = 'MTQwNDc0OTcwODYyNjM2NjQ5Ng.G8epOZ.CuZ5TqjiGMfBGbXdGn_kYnkxTGXAGwy1bdToSw'
 API_URL = 'http://127.0.0.1:5000/announce'
 
 intents = discord.Intents.default()
@@ -26,4 +26,5 @@ async def 공지(ctx, *, 내용):
 async def on_ready():
     print(f'봇 로그인 성공: {bot.user}')
 
-bot.run(TOKEN)
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
